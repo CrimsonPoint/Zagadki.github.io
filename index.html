@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ШифРРРРРРРРРРРРРР</title>
+</head>
+<body>
+    <span style='font-size:12.0pt;margin-left: 65%'>
+
+        <script type="text/javascript">
+        // Заголовок страницы (h1)
+        var title = 'Шифр - ???';
+        // Подзаголовок (h2)
+        var subtitle = "А ты сможешь угадать философов????";
+        // Это ваши вопросы
+        
+        var questions=[
+        {
+            text: "Чье это высказывание? <br> <br> Наука — это организованные знания, мудрость — это организованная жизнь.",
+            answers: ["Иммануил Кант",
+                  "Артур Шопенгауэр",
+                  "Людвиг Андреас Фейербах"],
+            correctAnswer: 0 // нумерация ответов с нуля!
+        },
+        {
+            text: "Чье это кредо?<br> <br> Я мыслю, следовательно, я существую",
+            answers: ["Георг Вильгельм Фридрих Гегель",
+                  "Фрэнсис Бэкон",
+                  "Рене Декарт"],
+            correctAnswer: 2
+        },
+        {
+            text: "Кто это? <br><br>Его годы жизни (1712–1778 гг.) <br>Он является выдающимся ФРАНЦУЗСКИМ мыслителем.<br>Вошел в историю как основоположник романтизма в философской науке.<br>Его называют предтечей Великой французской революции.",
+            answers: ["Жан-Жак Руссо ",
+                  "Фома Аквинский",
+                  "Августин Аврелий"],
+            correctAnswer: 0
+        }
+        ];
+        
+        var yourAns = new Array;
+        var score = 0;
+        
+        function Engine(question, answer) {yourAns[question]=answer;}
+        
+        function Score(){
+           var answerText = "Результаты:\n";
+           for(var i = 0; i < yourAns.length; ++i){
+            var num = i+1;
+            answerText=answerText+"\n    Вопрос №"+ num +"";
+            if(yourAns[i]!=questions[i].correctAnswer){
+                answerText=answerText+"\n    Правильный ответ: " +
+                questions[i].answers[questions[i].correctAnswer] + "\n";
+              }
+                else{
+                answerText=answerText+": Верно! \n";
+                ++score;
+                }
+               }
+        
+           answerText=answerText+"\nВсего правильных ответов: "+score+"\n";
+        
+           alert(answerText);
+           yourAns = [];
+           score = 0;
+           clearForm("quiz");
+        }
+        function clearForm(name) {
+           var f = document.forms[name];
+           for(var i = 0; i < f.elements.length; ++i) {
+            if(f.elements[i].checked)
+                f.elements[i].checked = false;
+        }
+        }
+        </script>
+        
+        <style>
+        span.quest {font-weight: bold;}
+        span{
+            
+            font-family:sans-serif;
+            
+        }
+        
+        input{
+          text-decoration: none;
+          display: inline-block;
+          color: white;
+          padding: 20px 30px;
+          margin: 10px 20px;
+          border-radius: 10px;
+          font-family: 'Montserrat', sans-serif;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+          background-size: 200% auto;
+          box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+          transition: .5s;
+          border: none;
+          
+        }
+        input:hover{
+            background-position: right center;
+            
+            
+        }
+        input:active{
+            box-shadow: 4px 4px 4px rgba(48, 138, 255, 0.356);
+            animation: animate-shadow 1s ease-in infinite;
+        }
+        h1{
+            font-family:sans-serif;
+            
+        
+        }
+        h2{
+            font-family:sans-serif;
+            
+        }
+        body {
+            background: linear-gradient(90deg, #ffffff, #b2e1f6);
+            margin-left: 550px;
+            margin-top: 70px;
+        }
+        .span1{
+    position: absolute;
+    top: 760px;
+    left: 1000px;
+}
+        
+        
+        </style>
+        <span class="span1">
+            <b>Выполнили:</b> Фомин Александр, Туринцев Николай, Екатерина Черепанова
+        </span>
+        <h1><script>document.write(title)</script></h1>
+        <h2><script>document.write(subtitle)</script></h2>
+        
+        <form name="quiz">
+        <ol>
+        <script>
+        for(var q=0; q<questions.length; ++q) {
+           var question = questions[q];
+           var idx = 1 + q;
+        
+           document.writeln('<li><span class="quest">' + question.text + '</span><br/>');
+           for(var i in question.answers) {
+            document.writeln('<input type=radio name="q' + idx + '" value="' + i +
+            '" onClick="Engine(' + q + ', this.value)">' + question.answers[i] + '<br/>');
+        }
+        }
+        </script>
+        </ol>
+        <input type="button" onClick="Score()" value="Проверить результаты" />
+        
+        </form>
+    
+
+        <section class="itog">
+            <p></p>
+
+        </section>
+        
+</body>
+</html>
